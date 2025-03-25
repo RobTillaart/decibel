@@ -23,9 +23,13 @@ This library is used to calculate decibel, or **dB** of a value.
 Decibel is in fact a logarithmic scaling and calculating dB is straightforward, 
 often from a single value or from a ratio e.g. gain in dB uses output / input.
 
-```math
+```cpp
 dB = 10 x log10(value);
 dB = 10 x log10(value1 / value2);
+```
+
+```math
+dB = 10 * log_10(value);
 ```
 
 Decibel is often used in audio as our hearing is sort of logarithmic.
