@@ -11,35 +11,36 @@
 
 # decibel
 
-Arduino library for fast decibel routines.
+Arduino library for fast decibel calculation.
 
 
 ## Description
 
 **Experimental**
 
-This library is to calculate decibel, or dB of a value.
+This library is used to calculate decibel, or **dB** of a value.
 
-Decibel is in fact just a logarithmic scaling.
-Calculating dB is straightforward, often from a single value
-or from a ratio e.g. gain in dB uses out/in.
+Decibel is in fact a logarithmic scaling and calculating dB is straightforward, 
+often from a single value or from a ratio e.g. gain in dB uses output / input.
 
-```cpp
+```math
 dB = 10 x log10(value);
 dB = 10 x log10(value1 / value2);
 ```
 
 Decibel is often used in audio as our hearing is sort of logarithmic.
-When the maximum output is defined as 1, so the range is from 0..1
+When the maximum output is defined as 1, so the amplification range is from 0..1
 the dB scale goes from -infinity to 0, in practice the lower value
-is not infinity bet e.g. from -63 to 0.
+is not infinity but e.g. goes from -63 to 0.
 
 The goal of the library is to provide a function to calculate
 the dB value faster with less accuracy.
 For many applications e.g. display the value this is good enough.
 
-The library also provides an **inverseDecibel()** function to
-reverse the math, e.g. to calculate the out/in value from the gain.
+The library also provides an **inverseDecibel()** function to reverse the math. 
+This can be used e.g. to calculate the output / input values from the gain.
+
+Feedback, as always is welcome.
 
 
 ### Related
@@ -97,19 +98,14 @@ using (4 byte) float.
 #include "decibel.h"
 ```
 
-### Normal
-
 - **float decibel(float alpha)** calculate the decibel value.
 This implementation takes the absolute value of alpha so negative values
 will not return NAN.
 If alpha == 0 the return value is "inf" == infinity.
 - **float inverseDecibel(float alpha)** reverse math.
 Will always return a positive value.
-
-
-### optimized
-
-- **float decibelFast(float alpha)** calculate the decibel value.
+- **float decibelFast(float alpha)** calculates the decibel value,
+less accurate but faster.
 
 
 ## Future
@@ -125,7 +121,7 @@ Will always return a positive value.
 #### Could
 
 - use of double for the accurate functions?
-- find related functions?
+- find related functions to include?
 
 #### Wont
 

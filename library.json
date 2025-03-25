@@ -1,7 +1,7 @@
 {
   "name": "decibel",
-  "keywords": "fast, log10, log2",
-  "description": "Arduino library for decibel.",
+  "keywords": "",
+  "description": "Arduino library for fast decibel calculation.",
   "authors":
   [
     {
