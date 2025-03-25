@@ -29,7 +29,7 @@ dB = 10 x log10(value1 / value2);
 ```
 
 ```math
-dB = 10 * log_10(value);
+dB = 10 * log_{10}(value);
 ```
 
 Decibel is often used in audio as our hearing is sort of logarithmic.
