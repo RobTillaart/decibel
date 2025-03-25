@@ -28,10 +28,6 @@ dB = 10 x log10(value);
 dB = 10 x log10(value1 / value2);
 ```
 
-```math
-dB = 10 * log_{10}(value);
-```
-
 Decibel is often used in audio as our hearing is sort of logarithmic.
 When the maximum output is defined as 1, so the amplification range is from 0..1
 the dB scale goes from -infinity to 0, in practice the lower value
