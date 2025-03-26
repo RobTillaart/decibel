@@ -51,13 +51,13 @@ Feedback, as always is welcome.
 
 ### Performance
 
-Time in microseconds per call.
+INdicative times in microseconds per call.
 
 |  Function          |  UNO  |  ESP32  |  Notes  |
 |:-------------------|:-----:|:-------:|:--------|
-|  decibel()         |  176  |         |
-|  inverseDecibel()  |  204  |         |
-|  decibelFast()     |   80  |         |
+|  decibel()         |  176  |   13.4  |
+|  inverseDecibel()  |  204  |   11.8  |
+|  decibelFast()     |   80  |   0.46  |
 |                    |       |         |
 
 On AVR the decibelFast() is more than 2x as fast.

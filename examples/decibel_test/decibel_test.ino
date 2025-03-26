@@ -9,7 +9,7 @@ uint32_t start, stop;
 
 
 volatile float a = -5.0;
-float x;
+volatile float x, y;
 
 void setup()
 {
@@ -19,51 +19,66 @@ void setup()
   delay(100);
 
   start = micros();
-  x = decibel(-a);
+  for (int i = 0; i < 1000; i++)
+  {
+    x = decibel(-a);
+  }
   stop = micros();
-  Serial.print("TIME:\t");
-  Serial.println(stop - start);
-  Serial.print("VAL:\t");
+  Serial.print("decibel(-a):\t");
+  Serial.print(stop - start);
+  Serial.print("\t");
   Serial.println(x, 6);
   delay(100);
 
   start = micros();
-  x = decibel(-0.0);
+  for (int i = 0; i < 1000; i++)
+  {
+    x = decibel(0);
+  }
   stop = micros();
-  Serial.print("TIME:\t");
-  Serial.println(stop - start);
-  Serial.print("VAL:\t");
+  Serial.print("decibel(0):\t");
+  Serial.print(stop - start);
+  Serial.print("\t");
   Serial.println(x, 6);
   delay(100);
 
   start = micros();
+  for (int i = 0; i < 1000; i++)
+  {
+    x = decibel(a);
+  }
+  stop = micros();
+  Serial.print("decibel(a):\t");
+  Serial.print(stop - start);
+  Serial.print("\t");
+  Serial.println(x, 6);
+  delay(100);
+
+  start = micros();
+  for (int i = 0; i < 1000; i++)
+  {
+    x = decibelFast(a);
+  }
+  stop = micros();
+  Serial.print("dBFast(a)\t");
+  Serial.print(stop - start);
+  Serial.print("\t");
+  Serial.println(x, 6);
+  delay(100);
+
   x = decibel(a);
-  stop = micros();
-  Serial.print("TIME:\t");
-  Serial.println(stop - start);
-  Serial.print("VAL:\t");
-  Serial.println(x, 6);
-  delay(100);
-
   start = micros();
-  x = decibelFast(a);
+  for (int i = 0; i < 1000; i++)
+  {
+    y = inverseDecibel(x);
+  }
   stop = micros();
-  Serial.print("TIME:\t");
-  Serial.println(stop - start);
-  Serial.print("DBFAST:\t");
-  Serial.println(x, 6);
-  delay(100);
-
-  x = decibel(a);
-  start = micros();
-  float y = inverseDecibel(x);
-  stop = micros();
-  Serial.print("TIME:\t");
-  Serial.println(stop - start);
-  Serial.print("INVDB:\t");
-  Serial.println(a, 6);
-  Serial.println(x, 6);
+  Serial.print("inverse(x):\t");
+  Serial.print(stop - start);
+  Serial.print("\t");
   Serial.println(y, 6);
+  Serial.println(x, 6);
+  Serial.println(a, 6);
   delay(100);
 
 }
